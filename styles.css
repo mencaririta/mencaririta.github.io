@@ -1,0 +1,984 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+
+:root {
+    --paper: #f5eee3;
+    --paper-deep: #eee1d0;
+    --ink: #302722;
+    --muted: #76685f;
+    --red: #a52b22;
+    --red-dark: #85221d;
+    --blue: #354b5b;
+    --line: rgba(91, 68, 52, .18);
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', Arial, sans-serif;
+    --max: 1160px
+}
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.65
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+.section-wrap {
+    width: min(var(--max), calc(100% - 64px));
+    margin-inline: auto
+}
+
+.site-header {
+    height: 76px;
+    padding: 0 max(32px, calc((100% - var(--max))/2));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(245, 238, 227, .92);
+    backdrop-filter: blur(14px)
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font: 500 17px var(--serif);
+    white-space: nowrap
+}
+
+.brand-mark {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: var(--red);
+    color: #fff;
+    font: 700 23px var(--sans);
+    transform: rotate(-4deg)
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    font-size: 13px;
+    color: #55483f
+}
+
+.main-nav a:not(.nav-cta):hover {
+    color: var(--red)
+}
+
+.nav-cta {
+    background: var(--red);
+    color: #fff;
+    padding: 11px 19px;
+    border-radius: 30px;
+    font-weight: 600
+}
+
+.nav-cta:hover,
+.button-primary:hover {
+    background: var(--red-dark);
+    transform: translateY(-2px)
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 0
+}
+
+.hero {
+    min-height: 640px;
+    display: grid;
+    grid-template-columns: .95fr 1.05fr;
+    align-items: center;
+    gap: 24px;
+    padding-block: 70px 55px
+}
+
+.hero-copy {
+    position: relative;
+    z-index: 2;
+    padding-left: 5%
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: .16em;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--red);
+    margin: 0 0 18px
+}
+
+.hero h1 {
+    font: 600 clamp(64px, 8vw, 104px)/.91 var(--serif);
+    letter-spacing: -.055em;
+    margin: 0 0 18px
+}
+
+.hero h1 em {
+    color: var(--red);
+    font-weight: 500
+}
+
+.hero-subtitle {
+    font: italic 22px/1.4 var(--serif);
+    margin: 0 0 22px
+}
+
+.hero-description {
+    max-width: 400px;
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0 0 27px
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 13px 22px;
+    border-radius: 40px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: .2s ease
+}
+
+.button-primary {
+    background: var(--red);
+    color: white;
+    box-shadow: 0 8px 20px rgba(165, 43, 34, .13)
+}
+
+.hero-note {
+    font-size: 11px;
+    color: #8d7d70;
+    margin-top: 15px
+}
+
+.hero-art {
+    min-height: 510px;
+    position: relative;
+    display: grid;
+    place-items: center;
+    isolation: isolate
+}
+
+.hero-art:before {
+    content: "";
+    position: absolute;
+    width: 78%;
+    height: 88%;
+    background: url('assets/cover-bottom.png') center/cover no-repeat;
+    opacity: .16;
+    filter: blur(28px);
+    z-index: -1;
+    transform: scale(.92)
+}
+
+.book-mockup {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    filter: drop-shadow(22px 24px 17px rgba(50, 37, 28, .25));
+    transform: perspective(1100px) rotateY(-8deg) rotateZ(1deg);
+    width: 285px;
+    aspect-ratio: 1365/2048;
+    margin-left: 8%
+}
+
+.book-cover-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid rgba(80, 55, 38, .18);
+    border-radius: 2px 0 0 2px
+}
+
+.book-pages {
+    position: absolute;
+    right: -11px;
+    top: 1%;
+    height: 98%;
+    width: 12px;
+    background: linear-gradient(90deg, #d4c3ac, #f4e9d9 45%, #b9a58e);
+    border: 1px solid #b9a58e;
+    transform: skewY(-1deg)
+}
+
+.value-strip {
+    min-height: 106px;
+    background: #efe2d1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(25px, 7vw, 100px);
+    padding: 20px 32px;
+    border-block: 1px solid rgba(115, 76, 51, .1)
+}
+
+.value-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font: 14px/1.45 var(--serif);
+    color: #554338
+}
+
+.value-icon {
+    font: 34px var(--serif);
+    color: var(--red)
+}
+
+.about {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: clamp(24px, 5vw, 64px);
+    padding-block: 110px;
+    min-width: 0
+}
+
+.about-art {
+    width: 100%;
+    min-width: 0;
+    position: relative;
+    border-radius: 3px;
+    overflow: visible
+}
+
+.about-art img {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+}
+
+.about-art:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 40%, rgba(245, 238, 227, .25));
+    pointer-events: none
+}
+
+.about-copy h2,
+.section-heading h2,
+.faq-inner h2 {
+    font: 500 clamp(34px, 4vw, 48px)/1.16 var(--serif);
+    letter-spacing: -.03em;
+    margin: 0 0 24px
+}
+
+.about-copy h2 em,
+.section-heading h2 em {
+    color: var(--red);
+    font-weight: 500
+}
+
+.about-copy p:not(.eyebrow) {
+    font-size: 14px;
+    color: #65584f;
+    line-height: 1.9
+}
+
+.author-line {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 30px;
+    font: italic 16px var(--serif)
+}
+
+.author-rule {
+    width: 42px;
+    height: 1px;
+    background: var(--red)
+}
+
+.quote-band {
+    padding: 65px 24px;
+    text-align: center;
+    background: #e9ddce;
+    color: var(--blue)
+}
+
+.quote-mark {
+    font: 80px/.7 var(--serif);
+    color: var(--red)
+}
+
+.quote-band p {
+    font: italic clamp(22px, 3vw, 30px)/1.5 var(--serif);
+    margin: 12px 0
+}
+
+.quote-caption {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: #8b7667
+}
+
+.formats {
+    padding-block: 100px 90px
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 42px
+}
+
+.section-heading .eyebrow {
+    margin-bottom: 12px
+}
+
+.section-heading h2 {
+    margin-bottom: 10px
+}
+
+.section-heading>p:last-child {
+    font-size: 13px;
+    color: var(--muted)
+}
+
+.format-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    max-width: 900px;
+    margin: auto
+}
+
+.format-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    border: 1px solid rgba(124, 84, 55, .2);
+    border-radius: 20px;
+    background: rgba(255, 250, 242, .45);
+    min-height: 300px
+}
+
+.format-card.featured {
+    background: #f0e2d2
+}
+
+.popular-tag {
+    position: absolute;
+    top: -12px;
+    right: 24px;
+    background: var(--blue);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 9px;
+    letter-spacing: .08em;
+    text-transform: uppercase
+}
+
+.format-visual {
+    display: grid;
+    place-items: center;
+    min-height: 190px
+}
+
+.device {
+    width: 115px;
+    height: 170px;
+    background: #283744;
+    border: 5px solid #283744;
+    border-radius: 12px;
+    padding: 7px;
+    box-shadow: 0 12px 20px #3e30232b;
+    overflow: hidden
+}
+
+.sample-cover {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px
+}
+
+.print-book {
+    width: 116px;
+    height: 174px;
+    display: flex;
+    box-shadow: 8px 10px 12px #3e302333;
+    transform: perspective(500px) rotateY(-8deg);
+    position: relative
+}
+
+.print-book:after {
+    content: "";
+    position: absolute;
+    right: -6px;
+    top: 2px;
+    width: 6px;
+    height: 98%;
+    background: linear-gradient(90deg, #d4c3ac, #f4e9d9);
+    border: 1px solid #b9a58e
+}
+
+.print-book .sample-cover {
+    border-left: 4px solid rgba(77, 57, 40, .2)
+}
+
+.format-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .13em;
+    color: var(--red);
+    font-weight: 700
+}
+
+.format-info h3 {
+    font: 500 28px var(--serif);
+    margin: 5px 0
+}
+
+.format-info p {
+    font-size: 12px;
+    line-height: 1.65;
+    color: var(--muted);
+    min-height: 40px;
+    margin: 0 0 15px
+}
+
+.price-caption {
+    font-size: 10px;
+    color: #87786d
+}
+
+.price {
+    font: 600 30px var(--serif);
+    color: var(--red);
+    margin-bottom: 15px
+}
+
+.format-info .button {
+    width: 100%;
+    padding: 12px 10px;
+    font-size: 11px
+}
+
+.price-note {
+    text-align: center;
+    font-size: 11px;
+    color: #8b7d72;
+    margin: 22px 0 0
+}
+
+.order-notice {
+    max-width: 700px;
+    margin: 20px auto 0;
+    padding: 14px 18px;
+    border: 1px solid #d5b8a0;
+    background: #f7eade;
+    border-radius: 10px;
+    color: #6d4738;
+    font-size: 13px
+}
+
+.faq-section {
+    background: #e9dfd2;
+    padding-block: 80px
+}
+
+.faq-inner {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 10%
+}
+
+.faq-inner h2 {
+    font-size: 42px
+}
+
+.faq-list details {
+    border-bottom: 1px solid var(--line);
+    padding: 17px 0
+}
+
+.faq-list summary {
+    font: 500 17px var(--serif);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px
+}
+
+.faq-list summary:after {
+    content: "+";
+    color: var(--red);
+    font: 22px var(--sans)
+}
+
+.faq-list details[open] summary:after {
+    content: "−"
+}
+
+.faq-list details p {
+    font-size: 13px;
+    color: var(--muted);
+    max-width: 600px
+}
+
+.site-footer {
+    min-height: 100px;
+    padding: 22px max(32px, calc((100% - var(--max))/2));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #2d414f;
+    color: #f7eee2
+}
+
+.footer-brand {
+    font-size: 15px
+}
+
+.footer-brand .brand-mark {
+    background: #f7eee2;
+    color: #2d414f
+}
+
+.site-footer>p,
+.copyright {
+    font-size: 10px;
+    color: #d6c9bb
+}
+
+.site-footer>p {
+    font-family: var(--serif);
+    font-style: italic
+}
+
+@media(max-width:800px) {
+    .site-header {
+        height: 68px;
+        padding-inline: 22px
+    }
+
+    .section-wrap {
+        width: calc(100% - 44px)
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 10px
+    }
+
+    .menu-toggle span {
+        width: 23px;
+        height: 1.5px;
+        background: var(--ink)
+    }
+
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        padding: 20px 24px 24px;
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px
+    }
+
+    .main-nav.open {
+        display: flex
+    }
+
+    .main-nav .nav-cta {
+        text-align: center
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding-block: 60px 35px;
+        gap: 0
+    }
+
+    .hero-copy {
+        text-align: center;
+        padding: 0
+    }
+
+    .hero-description {
+        margin-inline: auto
+    }
+
+    .hero-art {
+        min-height: 420px;
+        margin-top: 8px
+    }
+
+    .book-mockup {
+        width: 220px;
+        margin-left: 0
+    }
+
+    .cover-title {
+        font-size: 36px
+    }
+
+    .cover-title span {
+        font-size: 49px
+    }
+
+    .value-strip {
+        gap: 18px;
+        justify-content: space-around;
+        padding-inline: 18px
+    }
+
+    .value-item {
+        font-size: 11px;
+        gap: 7px
+    }
+
+    .value-icon {
+        font-size: 25px
+    }
+
+    .about {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 35px;
+        padding-block: 70px
+    }
+
+    .about-art,
+    .about-copy {
+        width: 100%;
+        min-width: 0
+    }
+
+    .about-art img {
+        width: 100%;
+        height: auto
+    }
+
+    .about-copy {
+        max-width: 600px
+    }
+
+    .format-card {
+        padding: 20px;
+        gap: 12px
+    }
+
+    .format-visual {
+        min-height: 160px
+    }
+
+    .device {
+        width: 90px;
+        height: 140px
+    }
+
+    .print-book {
+        width: 95px;
+        height: 145px
+    }
+
+    .format-info h3 {
+        font-size: 24px
+    }
+
+    .price {
+        font-size: 25px
+    }
+
+    .faq-inner {
+        grid-template-columns: 1fr;
+        gap: 20px
+    }
+
+    .faq-inner h2 br {
+        display: none
+    }
+}
+
+@media(max-width:560px) {
+    .hero {
+        padding-top: 48px
+    }
+
+    .hero h1 {
+        font-size: 68px
+    }
+
+    .hero-subtitle {
+        font-size: 19px
+    }
+
+    .hero-art {
+        min-height: 350px
+    }
+
+    .book-mockup {
+        width: 190px
+    }
+
+    .cover-author {
+        font-size: 11px
+    }
+
+    .cover-title {
+        font-size: 31px;
+        margin-top: 22px
+    }
+
+    .cover-title span {
+        font-size: 43px
+    }
+
+    .cover-subtitle {
+        font-size: 8px
+    }
+
+    .value-strip {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 20px 28px
+    }
+
+    .value-item {
+        font-size: 13px
+    }
+
+    .value-icon {
+        width: 34px;
+        text-align: center
+    }
+
+    .formats {
+        padding-block: 70px
+    }
+
+    .section-heading h2 {
+        font-size: 34px
+    }
+
+    .format-grid {
+        grid-template-columns: 1fr;
+        gap: 22px
+    }
+
+    .format-card {
+        grid-template-columns: .72fr 1.28fr;
+        min-height: 255px;
+        padding: 19px
+    }
+
+    .format-visual {
+        min-height: 150px
+    }
+
+    .format-info p {
+        min-height: 0
+    }
+
+    .price {
+        font-size: 27px
+    }
+
+    .site-footer {
+        padding: 22px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 8px
+    }
+
+    .site-footer>p {
+        grid-column: 1/-1;
+        grid-row: 2;
+        margin: 0
+    }
+
+    .copyright {
+        grid-column: 2;
+        grid-row: 1;
+        text-align: right
+    }
+
+    .faq-section {
+        padding-block: 60px
+    }
+
+    .faq-inner h2 {
+        font-size: 36px
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    html {
+        scroll-behavior: auto
+    }
+
+    *,
+    *:before,
+    *:after {
+        transition: none !important
+    }
+}
+
+/* Form pemesanan buku cetak */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(35, 29, 25, .62);
+    backdrop-filter: blur(5px);
+    overflow-y: auto
+}
+
+.modal-backdrop[hidden] {
+    display: none
+}
+
+.order-modal {
+    position: relative;
+    width: min(100%, 620px);
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    padding: 34px;
+    background: var(--paper);
+    border: 1px solid rgba(124, 84, 55, .2);
+    border-radius: 20px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, .25)
+}
+
+.order-modal h2 {
+    font: 500 clamp(27px, 4vw, 36px)/1.15 var(--serif);
+    margin: 0 35px 10px 0
+}
+
+.modal-description {
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--muted);
+    margin: 0 0 22px
+}
+
+.modal-close {
+    position: absolute;
+    right: 20px;
+    top: 16px;
+    width: 38px;
+    height: 38px;
+    border: 0;
+    border-radius: 50%;
+    background: #eee1d0;
+    color: var(--ink);
+    font-size: 27px;
+    cursor: pointer
+}
+
+#print-order-form {
+    display: grid;
+    gap: 14px
+}
+
+#print-order-form label {
+    display: grid;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #55483f
+}
+
+#print-order-form input {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 13px;
+    border: 1px solid rgba(91, 68, 52, .25);
+    border-radius: 9px;
+    background: #fffaf2;
+    color: var(--ink);
+    font: 14px var(--sans);
+    outline: none
+}
+
+#print-order-form input:focus {
+    border-color: var(--red);
+    box-shadow: 0 0 0 3px rgba(165, 43, 34, .1)
+}
+
+.modal-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px
+}
+
+.modal-submit {
+    width: 100%;
+    border: 0;
+    margin-top: 5px;
+    cursor: pointer;
+    font-family: var(--sans)
+}
+
+body.modal-open {
+    overflow: hidden
+}
+
+@media(max-width:560px) {
+    .order-modal {
+        padding: 27px 20px 22px;
+        border-radius: 16px
+    }
+
+    .modal-form-grid {
+        grid-template-columns: 1fr 1fr
+    }
+
+    .modal-description {
+        font-size: 12px
+    }
+}
+
+@media(max-width:380px) {
+    .modal-form-grid {
+        grid-template-columns: 1fr
+    }
+}
